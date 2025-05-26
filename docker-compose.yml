@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./Backend
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      - ./Backend:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_NAME=BD-citasmedicas
+      - DB_USERNAME=root
+      - DB_PASSWORD=rootpassword
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: BD-citasmedicas
+      MYSQL_CHARSET: utf8
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./BD_citasmedicas.sql:/docker-entrypoint-initdb.d/BD_citasmedicas.sql
+
+volumes:
+  mysql_data: 
