@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 
-require_once "../Backend/Login.php";
+require_once "../Models/Login.php";
 
 $registro=new Login();
 
@@ -44,7 +44,7 @@ switch($_GET["op"]){
 	break;
 
 	case 'permisos':
-		require_once "../Backend/Permiso.php";
+		require_once "../Models/Permiso.php";
 		$permiso = new Permiso();
 		$rspta = $permiso->listar();
 

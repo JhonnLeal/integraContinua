@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once "../Backend/Paciente.php";
+require_once "../Models/Paciente.php";
 
 $usuarios= new Pacientes();
 
