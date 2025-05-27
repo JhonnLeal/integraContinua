@@ -19,18 +19,18 @@ integraContinua/
 │   └── config/             # Configuración
 │       ├── Conexion.php    # Conexión a BD
 │       └── global.php      # Variables globales
-├── Vista/                  # Frontend (Páginas web)
-│   ├── login.html          # Página de login
-│   ├── pacientes/          # Páginas de pacientes
-│   ├── usuarios/           # Páginas de usuarios
-│   ├── home/               # Página principal
-│   └── noacceso/           # Página de acceso denegado
-├── public/                 # Recursos estáticos
-│   ├── css/                # Hojas de estilo
-│   ├── js/                 # JavaScript del frontend
-│   ├── img/                # Imágenes
-│   └── archivos/           # Archivos subidos
 ├── frontend/               # Archivos de configuración frontend
+│   │── Vista/                  # Frontend (Páginas web)
+│   │   ├── login.html          # Página de login
+│   │   ├── pacientes/          # Páginas de pacientes
+│   │   ├── usuarios/           # Páginas de usuarios
+│   │   ├── home/               # Página principal
+│   │   └── noacceso/           # Página de acceso denegado
+│   ├── public/                 # Recursos estáticos
+│   │   ├── css/                # Hojas de estilo
+│   │   ├── js/                 # JavaScript del frontend
+│   │   ├── img/                # Imágenes
+│   │   └── archivos/           # Archivos subidos
 ├── index.php              # Punto de entrada (redirige a login)
 ├── Dockerfile             # Configuración Docker
 ├── docker-compose.yml     # Orquestación de servicios
