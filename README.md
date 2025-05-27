@@ -6,8 +6,7 @@ Sistema web para la gestión de citas médicas desarrollado en PHP con MySQL.
 
 ```
 integraContinua/
-├── Backend/                 # Backend PHP
-│   ├── Dockerfile          # Configuración Docker para Backend
+├── Backend/                 # Backend PHP (API)
 │   ├── Models/             # Modelos de datos
 │   │   ├── Login.php       # Autenticación
 │   │   ├── Paciente.php    # Gestión de pacientes
@@ -20,7 +19,21 @@ integraContinua/
 │   └── config/             # Configuración
 │       ├── Conexion.php    # Conexión a BD
 │       └── global.php      # Variables globales
-├── docker-compose.yml      # Orquestación de servicios
+├── frontend/               # Archivos de configuración frontend
+│   │── Vista/                  # Frontend (Páginas web)
+│   │   ├── login.html          # Página de login
+│   │   ├── pacientes/          # Páginas de pacientes
+│   │   ├── usuarios/           # Páginas de usuarios
+│   │   ├── home/               # Página principal
+│   │   └── noacceso/           # Página de acceso denegado
+│   ├── public/                 # Recursos estáticos
+│   │   ├── css/                # Hojas de estilo
+│   │   ├── js/                 # JavaScript del frontend
+│   │   ├── img/                # Imágenes
+│   │   └── archivos/           # Archivos subidos
+├── index.php              # Punto de entrada (redirige a login)
+├── Dockerfile             # Configuración Docker
+├── docker-compose.yml     # Orquestación de servicios
 ├── BD_citasmedicas.sql    # Schema de base de datos
 └── README.md              # Este archivo
 ```
@@ -42,7 +55,7 @@ docker-compose up -d
 ```
 
 ### 2. Acceder a la aplicación
-- **Backend API**: http://localhost:8080
+- **Aplicación completa**: http://localhost:8080
 - **Base de datos**: localhost:3306
 
 ## 🔧 Configuración
@@ -84,14 +97,23 @@ docker-compose logs -f
 # Detener servicios
 docker-compose down
 
-# Reiniciar solo el backend
+# Reiniciar la aplicación
 docker-compose restart web
 
 # Eliminar todo (incluyendo datos)
 docker-compose down -v
+
+# Reconstruir contenedores
+docker-compose up -d --build
 ```
 
 ## 🏗️ Desarrollo
+
+### Flujo de la aplicación:
+1. **Usuario accede** → `index.php` → Redirige a `Vista/login.html`
+2. **Frontend** (`Vista/`) → Usa estilos de `public/css/` y scripts de `public/js/`
+3. **JavaScript** → Hace peticiones AJAX a `Backend/controlador/`
+4. **Backend** → Procesa datos y devuelve JSON
 
 ### Estructura del Backend
 - **Models/**: Clases que representan entidades de negocio
@@ -101,7 +123,8 @@ docker-compose down -v
 ### Agregar nuevos endpoints
 1. Crear modelo en `Backend/Models/`
 2. Crear controlador en `Backend/controlador/`
-3. Actualizar rutas según sea necesario
+3. Crear vista en `Vista/`
+4. Agregar estilos en `public/css/` y scripts en `public/js/`
 
 ## 🔒 Seguridad
 
@@ -117,3 +140,4 @@ docker-compose down -v
 - Extensiones: `mysqli`, `pdo`, `pdo_mysql`
 - Volúmenes persistentes para datos de BD
 - Hot reload para desarrollo (archivos montados como volumen)
+- Arquitectura monolítica simple y eficiente
