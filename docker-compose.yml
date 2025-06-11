@@ -1,19 +1,27 @@
 version: '3.8'
 
 services:
-  web:
+  frontend:
     build:
       context: ./Frontend
       dockerfile: Dockerfile.frontend
     ports:
       - "8080:80"
     depends_on:
-      - db
+      - backend
     volumes:
       - ./Frontend/Vista:/var/www/html/Vista
       - ./Frontend/public:/var/www/html/public
       - ./index.php:/var/www/html/index.php
-      - ./Backend:/var/www/html/Backend
+
+  backend:
+    build: ./Backend
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    volumes:
+      - ./Backend:/var/www/html
     environment:
       - DB_HOST=db
       - DB_NAME=BD-citasmedicas
@@ -34,3 +42,4 @@ services:
 
 volumes:
   mysql_data: 
+ 
