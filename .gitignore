@@ -1,0 +1,144 @@
+# ===================================
+# integraContinua - .gitignore
+# ===================================
+
+# ===== DEPENDENCIES & PACKAGES =====
+# PHP Composer
+Backend/vendor/
+composer.phar
+*.phar
+
+# Node.js
+Frontend/node_modules/
+Frontend/npm-debug.log*
+Frontend/yarn-debug.log*
+Frontend/yarn-error.log*
+Frontend/package-lock.json
+Frontend/.npm
+Frontend/.yarn-integrity
+
+# ===== ENVIRONMENT & CONFIG =====
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# Configuration files with secrets
+config/secrets.php
+config/database.local.php
+
+# ===== LOGS & DEBUGGING =====
+# Application logs
+*.log
+logs/
+Backend/logs/
+Frontend/logs/
+
+# Debug files
+*.debug
+debug.log
+
+# ===== TESTING & COVERAGE =====
+# PHPUnit
+Backend/.phpunit.result.cache
+Backend/coverage/
+Backend/phpunit.xml
+
+# Jest
+Frontend/coverage/
+Frontend/.nyc_output
+
+# ===== SYSTEM & EDITOR FILES =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== DOCKER & CONTAINERS =====
+# Docker volumes data
+docker-data/
+mysql-data/
+postgres-data/
+
+# Docker override files
+docker-compose.override.yml
+docker-compose.local.yml
+
+# ===== BUILD & DIST =====
+# Build artifacts
+build/
+dist/
+Frontend/build/
+Frontend/dist/
+
+# ===== TEMPORARY & CACHE =====
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# PHP cache
+Backend/.cache/
+Backend/var/cache/
+Backend/tmp/
+
+# ===== SECURITY & SENSITIVE =====
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.csr
+
+# Database dumps (except schema)
+*.sql
+!BD_citasmedicas.sql
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# ===== RUNTIME FILES =====
+# Process IDs
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+pids/
+lib-cov/
+
+# ===== MISC =====
+# Compiled binary addons
+*.node
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity 
