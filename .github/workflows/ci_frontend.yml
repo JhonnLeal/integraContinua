@@ -32,7 +32,6 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: Frontend/package-lock.json
 
       - name: Install Node.js dependencies
         run: |
