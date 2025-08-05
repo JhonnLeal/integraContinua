@@ -11,7 +11,7 @@ $("#frmAcceso").on('submit',function(e){
         }
         else
         {
-            alert("Usuario y/o Password incorrectos");
+            alert("Usuario y/o Password son incorrectos");
         }
     });
 })
