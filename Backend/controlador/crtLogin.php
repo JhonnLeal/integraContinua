@@ -63,6 +63,4 @@ switch($_GET["op"]){
 	// localhost/softwarecitasmedicas/controlador/crtLogin.php?op=permisos
 	break;	
 }
-
-
 ?>
